@@ -1,0 +1,19 @@
+- if user_signed_in?
+  li.nav-item.dropdown.pull-right
+    a href='#' class='dropdown-toggle nav-link' data-toggle='dropdown'
+      = current_user.email
+      b.caret
+      ul.dropdown-menu
+        li.dropdown-item = link_to 'Profile', current_user, class: 'nav-link'
+        li.dropdown-item = link_to 'Edit account', edit_user_registration_path, class: 'nav-link'
+        hr
+        li.dropdown-item.text-center = link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'nav-link'
+- else
+  li.nav-item
+    = link_to 'Sign in', new_user_session_path
+  li
+    = link_to 'Sign up', new_user_registration_path
+- if user_signed_in?
+  - if current_user.try(:admin?)
+    li
+      = link_to 'Users', users_path

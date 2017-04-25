@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+.idea
+.idea/MongoDB.iml
+.idea/workspace.xml

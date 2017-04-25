@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  root to: 'visitors#index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, path_prefix: 'account'
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

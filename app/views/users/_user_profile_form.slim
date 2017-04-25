@@ -1,0 +1,22 @@
+= simple_form_for(@user) do |u|
+  .authform
+    .row
+      .panel-default
+        .panel-heading
+          = image_tag @user.avatar.url(:medium), class:'img-responsive'
+          = u.file_field :avatar
+      .panel
+        .panel-body
+          = u.label 'Nickname'
+          = u.text_field :name, class: 'form-control'
+          br
+          = u.label 'Name'
+          = u.text_field :first_name, class: 'form-control'
+          br
+          = u.label 'Surname'
+          = u.text_field :last_name, class: 'form-control'
+          br
+          = u.label 'Additional'
+          = u.text_area :additional, class: 'form-control'
+        .panel-footer
+          = u.submit 'Save profile changes', class: 'btn btn-large btn-primary'
