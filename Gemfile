@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mongoid'
+gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin'
 gem 'simple_form'
 gem 'slim'

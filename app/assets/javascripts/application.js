@@ -20,4 +20,3 @@
 document.addEventListener("turbolinks:load", function() {
     alertify.set('notifier','position', 'top-right');
 });
-
