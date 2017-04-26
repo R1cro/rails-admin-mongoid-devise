@@ -1,10 +1,13 @@
-.container
+.authform
   .row
-    h3
-      | Users
-    .column
-      table.table
-        tbody
-          - @users.each do |user|
-            tr
-              = render user
+    .panel-default
+      .panel-heading
+        h3
+          | Users
+    .panel
+      .panel-body
+        table.table
+          tbody
+            - @users.each do |user|
+              tr
+                  = render user

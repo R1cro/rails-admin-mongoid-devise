@@ -7,18 +7,28 @@
       .panel-body
         br
           p = 'Nickname: '
-          b = @user.name if @user.name
+          - if @user.name.present?
+            b = @user.name
+          - else
+            b = 'N/A'
         br
           p = 'Email: '
           b = @user.email if @user.email
         br
           p = 'Name: '
-          b = @user.first_name if @user.first_name
-          b =  ' ' + @user.last_name if @user.last_name
+          - if @user.first_name.present? || @user.last_name.present?
+            b = @user.first_name
+            b =  ' ' + @user.last_name
+          - else
+            b = 'N/A'
         br
           p = 'Additional: '
-          b = @user.additional if @user.additional
+          - if @user.additional.present?
+            b = @user.additional
+          - else
+            b = 'No information...'
         hr
       .panel-footer
-        = link_to edit_user_path(@user.id), class: 'btn btn-large btn-primary'
-          | Edit user details
+        - if current_user == @user || current_user.admin?
+          = link_to edit_user_path(@user.id), class: 'btn btn-large btn-primary'
+            | Edit user details

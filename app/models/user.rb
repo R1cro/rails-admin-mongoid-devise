@@ -16,7 +16,7 @@ class User
   field :encrypted_password, type: String, default: ""
 
   ## Admin options
-  field :admin, type: Boolean, default: false
+  field :admin, type: Boolean, default: true
 
   ## Recoverable
   field :reset_password_token,   type: String

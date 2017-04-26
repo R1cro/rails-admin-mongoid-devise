@@ -1,4 +1,13 @@
 td
-  = link_to user.email, user
+  p = link_to user.email, user
+  'Nickname:
+  - if user.name.present?
+    b = user.name
+  - else
+    b N/A
+  p
+    'Last visited:
+    b = time_ago_in_words(user.last_sign_in_at)
 td
-  = link_to('Delete user', user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button-xs') unless user == current_user
+  - if current_user.admin?
+    = link_to('Remove user', user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button-xs') unless user == current_user

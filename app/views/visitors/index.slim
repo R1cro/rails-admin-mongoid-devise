@@ -1,6 +1,12 @@
-h3
-  | Welcome
-p
-  = link_to 'Users:', users_path
-  = User.count
-  |  registered
+.authform
+  .row
+    .panel-default
+      .panel-heading
+        h3
+          | Home
+    .panel
+      .panel-body
+        p
+          = link_to 'Users: ', users_path
+          b = User.count
+          |  registered
